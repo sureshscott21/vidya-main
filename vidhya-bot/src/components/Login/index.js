@@ -36,7 +36,7 @@ export default function Login({ onLogin }) {
     setError("");
     // This calls setUser in App.js and redirects to Home
     onLogin(email.split("@")[0] || "Student"); 
-    navigate("/"); // Redirect to home after login
+    navigate("/home"); // Redirect to home after login
   };
 
   // --- GOOGLE LOGIN HANDLER ---

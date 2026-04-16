@@ -18,8 +18,8 @@ export default function App() {
         <Routes>
           {/* 1. Root Path: Changed "/Home" to "/" so this is the main page */}
           <Route 
-            path="/" 
-            element={user ? <Home user={user} /> : <Navigate to="/login" />} 
+            path="/home" 
+            element={user ? <Home userName={user} /> : <Navigate to="/login" />} 
           />
           
           {/* 2. Login Page */}
