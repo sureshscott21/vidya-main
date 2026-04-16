@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import AppleSignin from "react-apple-signin-auth";
+import { useNavigate } from "react-router-dom"; 
 import "./index.css"; 
 
 export default function Signup() {
@@ -9,6 +10,7 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const navigate = useNavigate();
 
   // --- STANDARD SIGNUP ---
   const handleSignup = (e) => {
@@ -25,6 +27,7 @@ export default function Signup() {
     // Logic to save user would go here
     setError("");
     setIsSuccess(true);
+    navigate("/home"); 
   };
 
   // --- GOOGLE SIGNUP HANDLER ---
