@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import AppleSignin from "react-apple-signin-auth";
 // 👇 Import useNavigate
+import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom"; 
 import "./index.css"; 
 
@@ -36,6 +37,7 @@ export default function Login({ onLogin }) {
     setError("");
     // This calls setUser in App.js and redirects to Home
     onLogin(email.split("@")[0] || "Student"); 
+    return redirect("/");
   };
 
   // --- GOOGLE LOGIN HANDLER ---
