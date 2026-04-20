@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 // ─── DATA ───────────────────────────────────────────────
@@ -24,9 +24,10 @@ const QUICK = [
   { icon: "🎯", title: "Study Planner", sub: "Custom schedule", color: "#fdebd0" },
 ];
 
-export default function Home({ userName, onLogout }) {
+export default function Home({ userName }) {
   const [activeNav, setActiveNav] = useState("Home");
   const [modal, setModal] = useState(null);
+  const navigate = useNavigate();
 
   const navItems = ["Home", "VIDYA", "NEET", "JEET", "Tests", "Analytics"];
 
@@ -81,6 +82,10 @@ export default function Home({ userName, onLogout }) {
     }
   ];
 
+  const onLogout = () => {
+    navigate('/login');
+  }
+
   return (
     <div className="app">
       {/* Navbar */}
@@ -98,6 +103,7 @@ export default function Home({ userName, onLogout }) {
           <div className="nav-search">🔍 Search topics…</div>
           <div className="avatar">{userName[0].toUpperCase()}</div>
           <button className="logout-btn" onClick={onLogout}>Sign Out</button>
+          
         </div>
       </nav>
 
